@@ -40,6 +40,7 @@ Lo que hacemos ahora es añadir los botones de "Pausa" y "Play", para permitir d
         }
     }
 ```
+Como resultado final tenemos:
 ![Foo](https://github.com/alu0101127163/II-Microfono-Camara/blob/main/img/Camara.gif)
 
 ### Microfono
