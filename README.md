@@ -45,4 +45,35 @@ Como resultado final tenemos:
 ![Foo](https://github.com/alu0101127163/II-Microfono-Camara/blob/main/img/Camara.gif)
 
 ### Microfono
+
+En el micrófono dentro del Start() comprobamos si al menos tenemos un microfono conectado, manda un aviso si no se ha encontrado uno. Obtenemos las caracterisiticas del micrófono, según la documentación, si la minFreq y maxFreq son ceros, el micrófono soporta cualquier frecuencia, lo que significa que podemos poner la que queramos, en este caso le aplicamos una frecuencia de 44100 que es la recomendada.
+
+```C#
+void Start() 
+	{
+		//Check if there is at least one microphone connected
+		if(Microphone.devices.Length <= 0)
+		{
+			//Throw a warning message at the console if there isn't
+			Debug.LogWarning("Microphone not connected!");
+		}
+		else //At least one microphone is present
+		{
+			//Set 'micConnected' to true
+			micConnected = true;
+			
+			//Get the default microphone recording capabilities
+			Microphone.GetDeviceCaps(null, out minFreq, out maxFreq);
+			
+			//According to the documentation, if minFreq and maxFreq are zero, the microphone supports any frequency...
+			if(minFreq == 0 && maxFreq == 0)
+			{
+				//...meaning 44100 Hz can be used as the recording sampling rate
+				maxFreq = 44100;
+			}
+			
+			//Get the attached AudioSource component
+			goAudioSource = this.GetComponent<AudioSource>();
+		}
+```
 ![Foo](https://github.com/alu0101127163/II-Microfono-Camara/blob/main/img/Micro.gif)
