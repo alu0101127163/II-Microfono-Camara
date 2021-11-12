@@ -115,4 +115,5 @@ void OnGUI()
 		}
 	}
 ```
+Y nos quedaria asi:
 ![Foo](https://github.com/alu0101127163/II-Microfono-Camara/blob/main/img/Micro.gif)
